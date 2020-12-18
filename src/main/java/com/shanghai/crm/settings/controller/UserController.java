@@ -1,6 +1,7 @@
 package com.shanghai.crm.settings.controller;
 
 import com.shanghai.crm.base.constants.CrmConstants;
+import com.shanghai.crm.base.constants.CrmExceptionEnum;
 import com.shanghai.crm.base.exception.CrmException;
 import com.shanghai.crm.settings.bean.User;
 import com.shanghai.crm.settings.service.UserService;
@@ -10,6 +11,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 @Controller
 public class UserController {
@@ -32,6 +34,12 @@ public class UserController {
             model.addAttribute("mess",e.getMessage());
 
         }
+        return "../../login";
+    }
+
+    @RequestMapping("/loginOut")
+    public String loginOut(HttpSession session){
+        session.removeAttribute(CrmConstants.LOGIN_USER);
         return "../../login";
     }
 

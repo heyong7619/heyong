@@ -68,7 +68,8 @@
     -->
     <bean class="tk.mybatis.spring.mapper.MapperScannerConfigurer">
         <property name="basePackage"
-                  value="com.shanghai.crm.settings.mapper"/>
+                  value="com.shanghai.crm.settings.mapper,
+com.shanghai.crm.workbench.mapper"/>
         <property name="sqlSessionFactoryBeanName" value="sqlSessionFactory"/>
     </bean>
 
